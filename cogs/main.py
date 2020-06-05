@@ -40,7 +40,7 @@ class main(commands.Cog):
 
         conn=r.connect()
         p=conn.get("counter")
-        p=str(p)
+        p=int(p)
         p+=1
         ch=self.bot.get_channel(0)
         await ch.edit(name=f"message:{p}")
