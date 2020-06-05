@@ -3,6 +3,7 @@ import discord
 import asyncio
 import random
 import datetime
+import r
 
 great_owner_id = 459936557432963103
 
@@ -36,6 +37,15 @@ class main(commands.Cog):
 
         if message.author.bot:
             return
+
+        conn=r.connect()
+        p=conn.get("counter")
+        p=str(p)
+        p+=1
+        ch=self.bot.get_channel(0)
+        await ch.edit(name=f"message:{p}")
+        q=conn.set("counter",p)
+        print(q)
 
         if message.author.id != great_owner_id:
             return
