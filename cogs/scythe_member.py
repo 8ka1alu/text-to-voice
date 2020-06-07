@@ -21,9 +21,9 @@ class scythe(commands.Cog):
         pp=conn.smembers(cc)
         pp=[cv for cv in pp]
         gg=random.choice(pp)
-        embed = discord.Embed(title=f"{ctx.author}さんの使うキャラは",description=None)
+        embed = discord.Embed(title="**ランダムキャラ**",description=f"{ctx.author.mention}さんの使うキャラは")
         embed.add_field(name=f"**タイプ**",value=f"`{cc}`")
-        embed.add_field(name=f"**キャラ**",value=f"`{gg}`")
+        embed.add_field(name=f"**キャラ名**",value=f"`{gg}`")
         await ctx.send(embed=embed)
 
     @commands.command(name="登録")
