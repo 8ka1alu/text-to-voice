@@ -20,7 +20,10 @@ class scythe(commands.Cog):
         conn=r.connect()
         pp=conn.smembers(cc)
         gg=random.choice((pp))
-        await ctx.send(gg)
+        embed = discord.Embed(title=f"{ctx.author.mention}さんの使うキャラは",description=None)
+        embed.add_field(name=f"**タイプ**",value=f"`{cc}`")
+        embed.add_field(name=f"**キャラ**",value=f"`{gg}`")
+        await ctx.send(embed=embed)
 
     @commands.command(name="登録")
     async def sighin(self, ctx):
