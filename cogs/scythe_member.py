@@ -19,7 +19,7 @@ class scythe(commands.Cog):
             cc=op
         conn=r.connect()
         pp=conn.smembers(cc)
-        gg=random.choice((pp))
+        gg=random.choice(pp)
         embed = discord.Embed(title=f"{ctx.author.mention}さんの使うキャラは",description=None)
         embed.add_field(name=f"**タイプ**",value=f"`{cc}`")
         embed.add_field(name=f"**キャラ**",value=f"`{gg}`")
