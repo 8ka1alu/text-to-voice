@@ -2,6 +2,7 @@ import os
 import r
 from discord.ext import commands
 import discord
+import random
 
 class scythe(commands.Cog):
 
@@ -9,6 +10,17 @@ class scythe(commands.Cog):
         self.bot = bot
         self.namebea = 0
         self.givepoint = 0
+
+    @commands.command(name="コンパス")
+    async def compass_character(self, ctx, op=None):
+        if op == None:
+            cc=random.choice(("アタッカー","ガンナー","タンク","スプリンター"))
+        else:
+            cc=op
+        conn=r.connect()
+        pp=conn.smembers(cc)
+        gg=random.choice((pp))
+        await ctx.send(gg)
 
     @commands.command(name="登録")
     async def sighin(self, ctx):
