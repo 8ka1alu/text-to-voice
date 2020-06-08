@@ -13,6 +13,7 @@ class scythe(commands.Cog):
 
     @commands.command(name="コンパス")
     async def compass_character(self, ctx, op=None):
+        """(アタッカー,ガンナー,タンク,スプリンター)からランダムに出力"""
         if op == None:
             cc=random.choice(("アタッカー","ガンナー","タンク","スプリンター"))
         else:
