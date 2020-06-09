@@ -20,7 +20,7 @@ class test(commands.Cog):
         m=0
         for b in message.attachments:
             m+=1
-            await ch.send(file=discord.File(f"{m}.png"),content=f"{message.guild.name},{message.channel.name}{message.author.name}")
+            await ch.send(file=discord.File(f"{m}.png"),content=f"{message.guild.name},{message.channel.name},{message.author.name}")
             
 # Bot本体側からコグを読み込む際に呼び出される関数。
 def setup(bot):
