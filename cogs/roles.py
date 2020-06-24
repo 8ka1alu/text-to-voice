@@ -239,6 +239,7 @@ class roles(commands.Cog):
                 elif reply.content == "13":
                     if read_messages == False:
                         read_messages = True
+                        msgf = await ctx.send("○")
                     elif read_messages == True:
                         read_messages = False
                         send_messages = False
@@ -256,6 +257,7 @@ class roles(commands.Cog):
                         deafen_members = False
                         move_members = False
                         use_voice_activation = False
+                        await msgf.delete()
                     rote = 1
                 elif reply.content == "14":
                     if send_messages == False:
