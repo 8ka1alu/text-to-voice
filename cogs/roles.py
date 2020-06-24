@@ -144,7 +144,7 @@ class roles(commands.Cog):
                 rolevoc.add_field(name="－－－－－－－－－－",value='－－－－－－－－－－')
                 rolevoc.add_field(name="**無付与・設定完了**",value='`0`')
                 msgf = await ctx.send(embed=rolevoc) 
-            def  rotetime(m):
+            def rotetime(m):
                 return m.content == "a" or "b" or "0" or "1" or "2" or "3" or "4" or "5" or "6" or "7" or "8" or "9" or "10" or "11" or "12" or "13" or "14" or "15" or "16" or "17" or "18" "19" or "20" or "21" or "22" or "23" or "24" or "25" or "26" or "27" or "28" and m.author == ctx.author
             try:
                 reply = await self.bot.wait_for( "message" , check = rotetime , timeout = 300.0 )
