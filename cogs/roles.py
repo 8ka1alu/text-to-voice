@@ -357,6 +357,8 @@ class roles(commands.Cog):
                     elif use_voice_activation == True:
                         use_voice_activation = False
                     rote = 1
+                else:
+                    await asyncio.sleep(300.0)
                 await reply.delete()
                 
         pre = discord.Permissions(administrator=administrator,view_audit_log=view_audit_log,manage_guild=manage_guild,manage_roles=manage_roles,manage_channels=manage_channels,kick_members=kick_members,ban_members=ban_members,create_instant_invite=create_instant_invite,change_nickname=change_nicknames,manage_nicknames=manage_nicknames,manage_emojis=manage_emojis,manage_webhooks=manage_webhooks,read_messages=read_messages,send_messages=send_messages,
