@@ -153,6 +153,10 @@ class roles(commands.Cog):
                 return
             else:
                 if reply.content == "0":
+                    await msg.delete()
+                    if read_messages == True:
+                        await msgf.delete()
+                        await msgs.delete()
                     rote = 2
                 elif reply.content == "a":
                     if hoist == False:
@@ -353,6 +357,7 @@ class roles(commands.Cog):
                     elif use_voice_activation == True:
                         use_voice_activation = False
                     rote = 1
+                await reply.content.delete()
                 
         pre = discord.Permissions(administrator=administrator,view_audit_log=view_audit_log,manage_guild=manage_guild,manage_roles=manage_roles,manage_channels=manage_channels,kick_members=kick_members,ban_members=ban_members,create_instant_invite=create_instant_invite,change_nickname=change_nicknames,manage_nicknames=manage_nicknames,manage_emojis=manage_emojis,manage_webhooks=manage_webhooks,read_messages=read_messages,send_messages=send_messages,
                                   send_tts_messages=send_tts_messages,manage_messages=manage_messages,embed_links=embed_links,attach_files=attach_files,read_message_history=read_message_history,mention_everyone=mention_everyone,external_emojis=external_emojis,add_reactions=add_reactions,
