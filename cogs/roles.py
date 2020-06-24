@@ -92,6 +92,11 @@ class roles(commands.Cog):
         move_members = False
         use_voice_activation = False
         while rote < 2:
+            if rote == 1:
+                await msg.delete()
+                if read_messages == True:
+                    await msgf.delete()
+                rote=0
             roleedit = discord.Embed(title="権限設定",description=f"番号・記号を入力して下さい。")
             roleedit.add_field(name=f"**オンラインメンバーとは別にロールメンバーを表示する({hoist})**",value='`a`')
             roleedit.add_field(name=f"**このロールに対して@mentionを許可する({mentionable})**",value='`b`')
@@ -110,7 +115,7 @@ class roles(commands.Cog):
             roleedit.add_field(name=f"**テキストチャンネルの閲覧&ボイスチャンネルの表示({read_messages})**",value='`13`')
             roleedit.add_field(name="－－－－－－－－－－",value='－－－－－－－－－－')
             roleedit.add_field(name="**無付与・設定完了**",value='`0`')
-            await ctx.channel.send(embed=roleedit) 
+            msg = await ctx.send(embed=roleedit) 
             if read_messages == True:
                 await asyncio.sleep(0.1)
                 roletxt = discord.Embed(title="テキストの権限",description=f"番号を入力して下さい。")
@@ -136,7 +141,7 @@ class roles(commands.Cog):
                 rolevoc.add_field(name=f"**音声検出を使用({use_voice_activation})**",value='`28`')
                 rolevoc.add_field(name="－－－－－－－－－－",value='－－－－－－－－－－')
                 rolevoc.add_field(name="**無付与・設定完了**",value='`0`')
-                await ctx.channel.send(embed=rolevoc) 
+                msgf = await ctx.send(embed=rolevoc) 
             def  rotetime(m):
                 return m.content == "a" or "b" or "0" or "1" or "2" or "3" or "4" or "5" or "6" or "7" or "8" or "9" or "10" or "11" or "12" or "13" or "14" or "15" or "16" or "17" or "18" "19" or "20" or "21" or "22" or "23" or "24" or "25" or "26" or "27" or "28" and m.author == ctx.author
             try:
@@ -152,85 +157,85 @@ class roles(commands.Cog):
                         hoist = True
                     elif hoist == True:
                         hoist = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "b":
                     if mentionable == False:
                         mentionable = True
                     elif mentionable == True:
                         mentionable = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "1":
                     if administrator == False:
                         administrator = True
                     elif administrator == True:
                         administrator = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "2":
                     if view_audit_log == False:
                         view_audit_log = True
                     elif view_audit_log == True:
                         view_audit_log = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "3":
                     if manage_guild == False:
                         manage_guild = True
                     elif manage_guild == True:
                         manage_guild = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "4":
                     if manage_roles == False:
                         manage_roles = True
                     elif manage_roles == True:
                         manage_roles = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "5":
                     if manage_channels == False:
                         manage_channels = True
                     elif manage_channels == True:
                         manage_channels = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "6":
                     if kick_members == False:
                         kick_members = True
                     elif kick_members == True:
                         kick_members = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "7":
                     if ban_members == False:
                         ban_members = True
                     elif ban_members == True:
                         ban_members = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "8":
                     if create_instant_invite == False:
                         create_instant_invite = True
                     elif create_instant_invite == True:
                         create_instant_invite = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "9":
                     if change_nicknames == False:
                         change_nicknames = True
                     elif change_nicknames == True:
                         change_nicknames = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "10":
                     if manage_nicknames == False:
                         manage_nicknames = True
                     elif manage_nicknames == True:
                         manage_nicknames = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "11":
                     if manage_emojis == False:
                         manage_emojis = True
                     elif manage_emojis == True:
                         manage_emojis = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "12":
                     if manage_webhooks == False:
                         manage_webhooks = True
                     elif manage_webhooks == True:
                         manage_webhooks = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "13":
                     if read_messages == False:
                         read_messages = True
@@ -251,97 +256,97 @@ class roles(commands.Cog):
                         deafen_members = False
                         move_members = False
                         use_voice_activation = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "14":
                     if send_messages == False:
                         send_messages = True
                     elif send_messages == True:
                         send_messages = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "15":
                     if send_tts_messages == False:
                         send_tts_messages = True
                     elif send_tts_messages == True:
                         send_tts_messages = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "16":
                     if manage_messages == False:
                         manage_messages = True
                     elif manage_messages == True:
                         manage_messages = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "17":
                     if embed_links == False:
                         embed_links = True
                     elif embed_links == True:
                         embed_links = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "18":
                     if attach_files == False:
                         attach_files = True
                     elif attach_files == True:
                         attach_files = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "19":
                     if read_message_history == False:
                         read_message_history = True
                     elif read_message_history == True:
                         read_message_history = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "20":
                     if mention_everyone == False:
                         mention_everyone = True
                     elif mention_everyone == True:
                         mention_everyone = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "21":
                     if external_emojis == False:
                         external_emojis = True
                     elif external_emojis == True:
                         external_emojis = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "22":
                     if add_reactions == False:
                         add_reactions = True
                     elif add_reactions == True:
                         add_reactions = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "23":
                     if connect == False:
                         connect = True
                     elif connect == True:
                         connect = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "24":
                     if speak == False:
                         speak = True
                     elif speak == True:
                         speak = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "25":
                     if mute_members == False:
                         mute_members = True
                     elif mute_members == True:
                         mute_members = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "26":
                     if deafen_members == False:
                         deafen_members = True
                     elif deafen_members == True:
                         deafen_members = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "27":
                     if move_members == False:
                         move_members = True
                     elif move_members == True:
                         move_members = False
-                    rote = 0
+                    rote = 1
                 elif reply.content == "28":
                     if use_voice_activation == False:
                         use_voice_activation = True
                     elif use_voice_activation == True:
                         use_voice_activation = False
-                    rote = 0
+                    rote = 1
                 
         pre = discord.Permissions(administrator=administrator,view_audit_log=view_audit_log,manage_guild=manage_guild,manage_roles=manage_roles,manage_channels=manage_channels,kick_members=kick_members,ban_members=ban_members,create_instant_invite=create_instant_invite,change_nickname=change_nicknames,manage_nicknames=manage_nicknames,manage_emojis=manage_emojis,manage_webhooks=manage_webhooks,read_messages=read_messages,send_messages=send_messages,
                                   send_tts_messages=send_tts_messages,manage_messages=manage_messages,embed_links=embed_links,attach_files=attach_files,read_message_history=read_message_history,mention_everyone=mention_everyone,external_emojis=external_emojis,add_reactions=add_reactions,
