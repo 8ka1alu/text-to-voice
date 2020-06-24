@@ -96,7 +96,9 @@ class roles(commands.Cog):
                 await msg.delete()
                 if read_messages == True:
                     await msgf.delete()
+                    await msgs.delete()
                 rote=0
+                await asyncio.sleep(0.4)
             roleedit = discord.Embed(title="権限設定",description=f"番号・記号を入力して下さい。")
             roleedit.add_field(name=f"**オンラインメンバーとは別にロールメンバーを表示する({hoist})**",value='`a`')
             roleedit.add_field(name=f"**このロールに対して@mentionを許可する({mentionable})**",value='`b`')
@@ -130,7 +132,7 @@ class roles(commands.Cog):
                 roletxt.add_field(name=f"**リアクションの追加({add_reactions})**",value='`22`')
                 roletxt.add_field(name="－－－－－－－－－－",value='－－－－－－－－－－')
                 roletxt.add_field(name="**無付与・設定完了**",value='`0`')
-                await ctx.channel.send(embed=roletxt) 
+                msgs = await ctx.channel.send(embed=roletxt) 
                 await asyncio.sleep(0.1)
                 rolevoc = discord.Embed(title="音声の権限",description=f"番号を入力して下さい。")
                 rolevoc.add_field(name=f"**接続({connect})**",value='`23`')
@@ -240,6 +242,7 @@ class roles(commands.Cog):
                     if read_messages == False:
                         read_messages = True
                         msgf = await ctx.send("○")
+                        msgs = await ctx.send("○")
                     elif read_messages == True:
                         read_messages = False
                         send_messages = False
@@ -258,6 +261,7 @@ class roles(commands.Cog):
                         move_members = False
                         use_voice_activation = False
                         await msgf.delete()
+                        await msgs.delete()
                     rote = 1
                 elif reply.content == "14":
                     if send_messages == False:
