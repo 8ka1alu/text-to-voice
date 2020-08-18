@@ -2,6 +2,8 @@ from discord.ext import commands # Bot Commands Frameworkのインポート
 import discord
 import asyncio
 
+great_owner_id = 459936557432963103
+
 # コグとして用いるクラスを定義。
 class test(commands.Cog):
     # testクラスのコンストラクタ。Botを受取り、インスタンス変数として保持。
@@ -13,7 +15,7 @@ class test(commands.Cog):
         """オウム返し"""
         if ctx.author.id == great_owner_id:
             return
-        await ctx.send(f"{what}")
+        await ctx.send(what)
 
 # Bot本体側からコグを読み込む際に呼び出される関数。
 def setup(bot):
