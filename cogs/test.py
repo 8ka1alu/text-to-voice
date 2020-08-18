@@ -11,7 +11,7 @@ class test(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def say(self, ctx, what:int):
+    async def say(self, ctx, what):
         """オウム返し"""
         if ctx.author.id != 459936557432963103:
             return
