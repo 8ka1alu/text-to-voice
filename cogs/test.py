@@ -8,20 +8,13 @@ class test(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        if message.author.bot:
+    @commands.command()
+    async def say(self, ctx, what:int):
+        """オウム返し"""
+        if ctx.author.id == great_owner_id:
             return
-        ch = self.bot.get_channel(710092479151734795)
-        m=0
-        for p in message.attachments:
-            m+=1
-            await p.save(f"{m}.png")
-        m=0
-        for b in message.attachments:
-            m+=1
-            await ch.send(file=discord.File(f"{m}.png"),content=f"{message.guild.name},{message.channel.name},{message.author.name}")
-            
+        await ctx.send(f"{what}")
+
 # Bot本体側からコグを読み込む際に呼び出される関数。
 def setup(bot):
     bot.add_cog(test(bot)) 
