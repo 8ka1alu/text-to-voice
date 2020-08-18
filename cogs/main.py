@@ -12,13 +12,6 @@ class main(commands.Cog):
     # mainクラスのコンストラクタ。Botを受取り、インスタンス変数として保持。
     def __init__(self, bot):
         self.bot = bot
-        
-    @commands.command()
-    async def say(self, ctx, what:int):
-        """オウム返し"""
-        if ctx.author.id == great_owner_id:
-            return
-        await ctx.send(f'{what}')
 
     @commands.Cog.listener()
     async def on_message(self, message):
