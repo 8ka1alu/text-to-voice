@@ -13,8 +13,8 @@ class main(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
-    @commands.command(aliases=['s'])
-    async def say(self, ctx, what):
+    @commands.command()
+    async def say(self, ctx, what:int):
         """オウム返し"""
         if ctx.author.id == great_owner_id:
             return
