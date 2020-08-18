@@ -13,7 +13,7 @@ class test(commands.Cog):
     @commands.command()
     async def say(self, ctx, what:int):
         """オウム返し"""
-        if ctx.author.id == great_owner_id:
+        if ctx.auther.id == great_owner_id:
             return
         await ctx.send(what)
 
