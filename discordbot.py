@@ -4,24 +4,11 @@ import os
 import discord
 
 TOKEN = os.environ['DISCORD_BOT_TOKEN']
-prefix = 'rt'
+prefix = 'e!'
 
 # 読み込むコグの名前を格納しておく。
 INITIAL_EXTENSIONS = [
-    'cogs.main',
-    'cogs.bans',
-    'cogs.info',
-    'cogs.roles',
-    'cogs.global_chat',
-    'cogs.polls',
-    'cogs.slot',
-    'cogs.test',
-    'cogs.databases',
-    'cogs.eval',
-    'cogs.scythe_member',
-    'cogs.eew',
-    'cogs.trpg',
-    'cogs.disboard'
+    'cogs.eval'
 ]
 
 # クラスの定義。ClientのサブクラスであるBotクラスを継承。
@@ -45,14 +32,7 @@ class MyBot(commands.Bot):
         print(self.user.id)  # ボットのID
         print(discord.__version__)  # discord.pyのバージョン
         print('----------------')
-        print('Hello World,五皇帝管理プログラム「project-RTA」、起動しました')
-        channel = self.get_channel(694452244635975691)
-        await channel.send(self.user.name)  # ボットの名前
-        await channel.send(self.user.id)  # ボットのID
-        await channel.send(discord.__version__)  # discord.pyのバージョン
-        await channel.send('----------------')
-        await channel.send('Hello World,五皇帝管理プログラム「project-RTA」、起動しました')
-        await self.change_presence(status=discord.Status.idle,activity=discord.Game(name=f'五皇管理システム|Ping:{self.ws.latency * 1000:.0f}ms')) 
+        await self.change_presence(status=discord.Status.idle,activity=discord.Game(name=f'EVAL|Ping:{self.ws.latency * 1000:.0f}ms')) 
  
 class JapaneseHelpCommand(commands.DefaultHelpCommand):
     def __init__(self):
@@ -67,5 +47,5 @@ class JapaneseHelpCommand(commands.DefaultHelpCommand):
 
 #MyBotのインスタンス化及び起動処理。
 if __name__ == '__main__':
-    bot = MyBot(command_prefix='rt',help_command=JapaneseHelpCommand()) # command_prefixはコマンドの最初の文字として使うもの。 e.g. !ping
-    bot.run(TOKEN) # Botのトークン
+    bot = MyBot(command_prefix='e!',help_command=JapaneseHelpCommand())
+    bot.run(TOKEN)
