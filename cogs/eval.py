@@ -5,14 +5,11 @@ import textwrap
 import contextlib
 import json
 import glob
-import r
 import os
 
 import urllib.request
 from discord.ext import commands, tasks
 from discord import NotFound, Embed,  Forbidden
-
-admin_list = [459936557432963103]
 
 def cleanup_code(content):
     if content.startswith('```') and content.endswith('```'):
@@ -36,12 +33,9 @@ class eval(commands.Cog): #ここのdebugはhelpの時に[{prefix}help コマン
         self._last_result = None
 
     @commands.command(name='eval', pass_context=True, description="※運営専用コマンド")
-    @commands.bot_has_permissions(read_messages=True, send_messages=True, embed_links=True, add_reactions=True, manage_messages=True, read_message_history=True) #これ絶対消しちゃダメ
+    @commands.bot_has_permissions(manage_guild=True)
     async def evals(self, ctx):
         try:
-            if ctx.author.id not in admin_list:
-                return await ctx.send("指定ユーザーのみが使用できます")
-
             env = {'bot': self.bot, 'ctx': ctx, 'channel': ctx.channel, 'author': ctx.author, 'guild': ctx.guild, 'message': ctx.message, '_': self._last_result}
             env.update(globals())
             body = cleanup_code(ctx.message.content[6:].lstrip())
