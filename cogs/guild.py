@@ -17,7 +17,7 @@ class sarver(commands.Cog):
         invite="https://discord.com/api/oauth2/authorize?client_id=751714059652562966&permissions=8&scope=bot"
         sinvite="https://discord.gg/Jejvvpn"
         em = discord.Embed(title="**こちらから導入できます**",description=f"[このBOTの招待はこちら](<{invite}>)｜[サポート鯖はこちら](<{sinvite}>)", color=discord.Color.blue())
-        await ch.send(embed=em)
+        await ctx.send(embed=em)
 
 def setup(bot):
     bot.add_cog(sarver(bot))
