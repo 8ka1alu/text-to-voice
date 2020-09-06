@@ -12,9 +12,12 @@ class sarver(commands.Cog):
         if ch != None:
             await ch.send(embed=em)
 
-    @commands.command(description="※招待")
+    @commands.command()
     async def invite(self, ctx):
-        em = discord.Embed(title="**こちらから導入できます**",description=None, color=discord.Color.blue())
-        
+        invite="https://discord.com/api/oauth2/authorize?client_id=751714059652562966&permissions=8&scope=bot"
+        sinvite="https://discord.gg/Jejvvpn"
+        em = discord.Embed(title="**こちらから導入できます**",description=f"[このBOTの招待はこちら](<{invite}>)｜[サポート鯖はこちら](<{sinvite}>)", color=discord.Color.blue())
+        await ch.send(embed=em)
+
 def setup(bot):
     bot.add_cog(sarver(bot))
