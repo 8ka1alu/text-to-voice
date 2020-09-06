@@ -32,8 +32,8 @@ class eval(commands.Cog): #ここのdebugはhelpの時に[{prefix}help コマン
         self.bot = bot
         self._last_result = None
 
-    @commands.command(name='eval', pass_context=True, description="※運営専用コマンド")
-    @commands.bot_has_permissions(manage_guild=True)
+    @commands.command(name='eval', description="※運営専用コマンド")
+    @commands.bot_has_permissions(administrator=True)
     async def evals(self, ctx):
         try:
             env = {'bot': self.bot, 'ctx': ctx, 'channel': ctx.channel, 'author': ctx.author, 'guild': ctx.guild, 'message': ctx.message, '_': self._last_result}
