@@ -9,7 +9,8 @@ prefix = 'e!'
 # 読み込むコグの名前を格納しておく。
 INITIAL_EXTENSIONS = [
     'cogs.eval',
-    'cogs.test'
+    'cogs.test',
+    'cogs.vc'
 ]
 
 # クラスの定義。ClientのサブクラスであるBotクラスを継承。
