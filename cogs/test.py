@@ -6,7 +6,7 @@ class test(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    @commands.has_permissions(admin=True)
+    @commands.has_permissions(administrator=True)
     @commands.cooldown(1, 30, commands.BucketType.user)
     async def test(self, ctx):
         print("test")
