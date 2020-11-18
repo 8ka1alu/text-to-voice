@@ -1,5 +1,5 @@
-from discord.ext import commands, tasks # Bot Commands Frameworkをインポート
-import traceback # エラー表示のためにインポート
+from discord.ext import commands, tasks
+import traceback
 import os
 import discord
 
