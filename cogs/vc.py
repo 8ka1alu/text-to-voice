@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import os
 import r
+from gtts import gTTS
 
 conn = r.connect()
 
@@ -59,5 +60,13 @@ class VC(commands.Cog):
             return
         ch_id = conn.get('voice_ch')
           if message.id == str(ch_id):
+              voice_client = ctx.message.guild.voice_client
+              myText = message.content
+              language ='ja'
+              output = gTTS(text=myText, lang=language, slow=False)
+              output.save("voice.mp3")
+              ffmpeg_audio_source = discord.FFmpegPCMAudio("voice.mp3")
+              voice_client.play(ffmpeg_audio_source)
+                
 def setup(bot):
     bot.add_cog(VC(bot))
