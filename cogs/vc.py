@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import os
 
+
 if not discord.opus.is_loaded():
     discord.opus.load_opus("heroku-buildpack-libopus")
 
@@ -38,6 +39,9 @@ class VC(commands.Cog):
         embed = discord.Embed(title="**ボイスチャンネルから切断しました**", description=None)
         embed.timestamp = ctx.message.created_at
         await ctx.send(embed = embed)
+
+    @commands.Cog.listener()
+    async def on_message(self, message):
 
 
 def setup(bot):
