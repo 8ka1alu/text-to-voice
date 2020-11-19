@@ -6,6 +6,11 @@ from gtts import gTTS
 
 conn = r.connect()
 
+ffmpegopts = {
+    'before_options': '-nostdin',
+    'options': '-vn'
+}
+
 class VC(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -62,7 +67,7 @@ class VC(commands.Cog):
             language ='ja'
             output = gTTS(text=myText, lang=language, slow=False)
             output.save("voice.mp3")
-            ffmpeg_audio_source = discord.FFmpegPCMAudio("voice.mp3")
+            ffmpeg_audio_source = discord.FFmpegPCMAudio("voice.mp3", **ffmpegopts)
             voice_client.play(ffmpeg_audio_source)
                 
 def setup(bot):
