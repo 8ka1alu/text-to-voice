@@ -59,22 +59,20 @@ class VC(commands.Cog):
     async def on_message(self, message):
         if message.author.bot:
             return
+        if message.content.startswith("t!"):
+            return
         vch = conn.exists('voice_ch')
         if vch == 0:
-            await message.channel.send("-2")
             return
         ch_id = conn.get('voice_ch')
-        await message.channel.send("-1")
         if str(message.channel.id) == ch_id:
             voice_client = message.guild.voice_client
             myText = message.content
             language ='ja'
             output = gTTS(text=myText, lang=language, slow=False)
             output.save("voice.mp3")
-            await message.channel.send("1")
             ffmpeg_audio_source = discord.FFmpegPCMAudio("voice.mp3", **ffmpegopts)
             voice_client.play(ffmpeg_audio_source)
-            await message.channel.send("2")
             return
                 
 def setup(bot):
