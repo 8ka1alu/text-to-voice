@@ -62,13 +62,17 @@ class VC(commands.Cog):
             return
         ch_id = conn.get('voice_ch')
         if message.id == str(ch_id):
+            if message.member == self.bot:
+                retun
             voice_client = ctx.message.guild.voice_client
             myText = message.content
             language ='ja'
             output = gTTS(text=myText, lang=language, slow=False)
             output.save("voice.mp3")
+            await message.channel.send("1")
             ffmpeg_audio_source = discord.FFmpegPCMAudio("voice.mp3", **ffmpegopts)
             voice_client.play(ffmpeg_audio_source)
+            return await message.channel.send("2")
                 
 def setup(bot):
     bot.add_cog(VC(bot))
