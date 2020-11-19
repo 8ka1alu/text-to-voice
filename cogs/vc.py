@@ -57,7 +57,7 @@ class VC(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.author == self.bot:
+        if message.author.bot:
             return
         vch = conn.exists('voice_ch')
         if vch == 0:
