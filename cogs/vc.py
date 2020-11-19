@@ -17,6 +17,7 @@ class VC(commands.Cog):
 
     @commands.command(aliases=["connect","summon","con"])
     async def join(self, ctx):
+        """ボイスチャンネルに接続"""
         voice_state = ctx.author.voice
 
         if (not voice_state) or (not voice_state.channel):
@@ -41,6 +42,7 @@ class VC(commands.Cog):
 
     @commands.command(aliases=["disconnect","bye","dis"])
     async def leave(self, ctx):
+        """ボイスチャンネルから退室"""
         voice_client = ctx.message.guild.voice_client
 
         if not voice_client:
@@ -74,6 +76,13 @@ class VC(commands.Cog):
             ffmpeg_audio_source = discord.FFmpegPCMAudio("voice.mp3", **ffmpegopts)
             voice_client.play(ffmpeg_audio_source)
             return
-                
+          
+    @commands.Cog.listener()
+    async def on_guild_join(self, guild):
+        ch=guild.system_channel
+        em = discord.Embed(title="**導入ありがとうございます**",description="HELPは```t!help```で表示できます", color=discord.Color.blue())
+        if ch != None:
+            await ch.send(embed=em)
+            
 def setup(bot):
     bot.add_cog(VC(bot))
