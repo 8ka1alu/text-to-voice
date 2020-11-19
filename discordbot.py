@@ -13,6 +13,9 @@ INITIAL_EXTENSIONS = [
     'cogs.vc'
 ]
 
+if not discord.opus.is_loaded():
+    discord.opus.load_opus("heroku-buildpack-libopus")
+
 # クラスの定義。ClientのサブクラスであるBotクラスを継承。
 class MyBot(commands.Bot):
     # MyBotのコンストラクタ。
