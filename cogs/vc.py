@@ -6,9 +6,6 @@ from gtts import gTTS
 
 conn = r.connect()
 
-if not discord.opus.is_loaded():
-    discord.opus.load_opus("heroku-buildpack-libopus")
-
 class VC(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
