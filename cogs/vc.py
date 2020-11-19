@@ -59,11 +59,12 @@ class VC(commands.Cog):
     async def on_message(self, message):
         vch = conn.exists('voice_ch')
         if vch == 0:
-            return
+            return await message.channel.send("-2")
         ch_id = conn.get('voice_ch')
+        await message.channel.send("-1")
         if message.id == str(ch_id):
             if message.member == self.bot:
-                retun
+                retun await message.channel.send("0")
             voice_client = ctx.message.guild.voice_client
             myText = message.content
             language ='ja'
