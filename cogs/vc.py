@@ -65,7 +65,7 @@ class VC(commands.Cog):
             return
         ch_id = conn.get('voice_ch')
         await message.channel.send("-1")
-        if message.id == str(ch_id):
+        if message.channel.id == str(ch_id):
             voice_client = ctx.message.guild.voice_client
             myText = message.content
             language ='ja'
