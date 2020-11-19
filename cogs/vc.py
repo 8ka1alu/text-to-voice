@@ -59,12 +59,14 @@ class VC(commands.Cog):
     async def on_message(self, message):
         vch = conn.exists('voice_ch')
         if vch == 0:
-            return await message.channel.send("-2")
+            await message.channel.send("-2")
+            return
         ch_id = conn.get('voice_ch')
         await message.channel.send("-1")
         if message.id == str(ch_id):
             if message.member == self.bot:
-                retun await message.channel.send("0")
+                await message.channel.send("0")
+                return
             voice_client = ctx.message.guild.voice_client
             myText = message.content
             language ='ja'
@@ -73,7 +75,8 @@ class VC(commands.Cog):
             await message.channel.send("1")
             ffmpeg_audio_source = discord.FFmpegPCMAudio("voice.mp3", **ffmpegopts)
             voice_client.play(ffmpeg_audio_source)
-            return await message.channel.send("2")
+            await message.channel.send("2")
+            return
                 
 def setup(bot):
     bot.add_cog(VC(bot))
