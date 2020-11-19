@@ -66,7 +66,7 @@ class VC(commands.Cog):
         ch_id = conn.get('voice_ch')
         await message.channel.send("-1")
         if str(message.channel.id) == ch_id:
-            voice_client = ctx.message.guild.voice_client
+            voice_client = message.guild.voice_client
             myText = message.content
             language ='ja'
             output = gTTS(text=myText, lang=language, slow=False)
