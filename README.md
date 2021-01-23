@@ -1,24 +1,17 @@
 
-# Name（リポジトリ/プロジェクト/OSSなどの名前）
-
-分かりやすくてカッコイイ名前をつける（今回は"hoge"という名前をつける）
-
-"hoge"が何かを簡潔に紹介する
-
-# DEMO
-
-"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
-
-# Features
-
-"hoge"のセールスポイントや差別化などを説明する
+# Discord読み上げBot(配布版)
 
 # Requirement
 
-"hoge"を動かすのに必要なライブラリなどを列挙する
-
-* huga 3.5.2
-* hogehuga 1.0.2
+* discord.py[voice] 
+* Flask 1.0.2
+* requests 2.20.1
+* Pillow 5.3.0
+* redis 3.3.11
+* gTTS
+* opencv-python
+* ffmpeg
+※バージョン指定のないものは最新(2021年1月時点)
 
 # Installation
 
