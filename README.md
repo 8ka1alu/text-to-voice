@@ -1,5 +1,5 @@
 
-# Discord読み上げBot(配布版)
+# Discord読み上げBot(簡易版)
 
 # Requirement
 
@@ -10,7 +10,7 @@
 * redis 3.3.11
 * gTTS
 * opencv-python
-* ffmpeg
+* ffmpeg  
 ※バージョン指定のないものは最新(2021年1月時点)
 
 # Installation
