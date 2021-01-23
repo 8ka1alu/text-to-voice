@@ -34,8 +34,9 @@ class MyBot(commands.Bot):
         print(self.user.id)  # ボットのID
         print(discord.__version__)  # discord.pyのバージョン
         print('----------------')
-        await self.change_presence(status=discord.Status.idle,activity=discord.Game(name=f'Test|Ping:{self.ws.latency * 1000:.0f}ms')) 
+        await self.change_presence(status=discord.Status.idle,activity=discord.Game(name=f'{prefix}help|Ping:{self.ws.latency * 1000:.0f}ms')) 
  
+#既存ヘルプコマンドの日本語化
 class JapaneseHelpCommand(commands.DefaultHelpCommand):
     def __init__(self):
         super().__init__()
@@ -49,5 +50,5 @@ class JapaneseHelpCommand(commands.DefaultHelpCommand):
 
 #MyBotのインスタンス化及び起動処理。
 if __name__ == '__main__':
-    bot = MyBot(command_prefix='t!',help_command=JapaneseHelpCommand())
+    bot = MyBot(command_prefix=prefix,help_command=JapaneseHelpCommand())
     bot.run(TOKEN)
