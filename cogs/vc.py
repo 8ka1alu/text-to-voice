@@ -3,6 +3,9 @@ from discord.ext import commands
 import os
 import r
 from gtts import gTTS
+import discordbot as dib
+
+prefix = dib.prefix
 
 conn = r.connect()
 
@@ -59,13 +62,17 @@ class VC(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
+        """メッセージの変換"""
         if message.author.bot:
             return
-        if message.content.startswith("t!"):
+
+        if message.content.startswith(prefix):
             return
+
         vch = conn.exists('voice_ch')
         if vch == 0:
             return
+
         ch_id = conn.get('voice_ch')
         if str(message.channel.id) == ch_id:
             voice_client = message.guild.voice_client
@@ -79,8 +86,9 @@ class VC(commands.Cog):
           
     @commands.Cog.listener()
     async def on_guild_join(self, guild):
+        """bot導入時挨拶"""
         ch=guild.system_channel
-        em = discord.Embed(title="**導入ありがとうございます**",description="HELPは```t!help```で表示できます", color=discord.Color.blue())
+        em = discord.Embed(title="**導入ありがとうございます**",description=f"HELPは```{prefix}help```で表示できます", color=discord.Color.blue())
         if ch != None:
             await ch.send(embed=em)
             
