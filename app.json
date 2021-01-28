@@ -1,6 +1,7 @@
 {
   "name": "discord-tts-bot",
   "description": "Discordで聞き専用のTTSBotです",
+  "success_url": "/",
   "keywords": [
     "TTS",
     "Discord",
