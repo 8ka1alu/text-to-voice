@@ -9,11 +9,11 @@
   "repository": "https://github.com/8ka1alu/vc-project",
   "logo": "https://raw.githubusercontent.com/xxx/xxx/master/logo.png",
   "env": {
-    "HUBOT_HEROKU_KEEPALIVE_INTERVAL": {
+    "DISCORD_BOT_TOKEN": {
       "description": "hubot-heroku-keepalive interval.",
       "value": ""
     },
-    "HUBOT_HEROKU_KEEPALIVE_URL": {
+    "DISCORD_BOT_PREFIX": {
       "description": "hubot-heroku-keepalive URL.",
       "value": ""
     }
@@ -21,4 +21,11 @@
   "addons": [
     "heroku-redis:hobby-dev",
   ]
+  },
+  "formation": {
+    "web": {
+      "quantity": 2,
+      "size": "Performance-M"
+    }
+  }
 }
