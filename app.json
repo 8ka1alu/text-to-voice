@@ -24,7 +24,6 @@
   },
   "formation": {
       "description": "自動で起動します",
-      "type": "array",
       "example": [
         { "process": "discordbot", "quantity": 1, "size": "standard-2X" }
       ]
