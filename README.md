@@ -13,17 +13,9 @@
 * ffmpeg  
 ※バージョン指定のないものは最新(2021年1月時点)
 
-# Installation
-
-Requirementで列挙したライブラリなどのインストール方法を説明する
-
-```bash
-pip install huga_package
-```
-
 # Usage
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/8ka1alu/vc-project)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/8ka1alu/text-to-voice)
 
 # Note
 
@@ -31,13 +23,10 @@ pip install huga_package
 
 # Author
 
-作成情報を列挙する
-
 * 作成者
 * 所属
 * E-mail
 
 # License
-ライセンスを明示する
 
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+"text-to-voice" is under [MIT license](https://github.com/8ka1alu/text-to-voice/blob/stable/LICENSE).
