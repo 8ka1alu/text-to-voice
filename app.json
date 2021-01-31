@@ -20,7 +20,7 @@
     }
   },
   "addons": [
-    "heroku-redis:hobby-dev",
+    "heroku-redis:hobby-dev"
   ]
   },
   "formation": {
