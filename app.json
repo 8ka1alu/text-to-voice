@@ -8,7 +8,7 @@
     "Bot"
   ],
   "repository": "https://github.com/8ka1alu/text-to-voice",
-  "logo": "https://github.com/8ka1alu/vc-project/blob/master/picture/text_to_speech_icon_135108.png",
+  "logo": "https://github.com/8ka1alu/text-to-voice/blob/stable/picture/text_to_speech_icon_135108.png",
   "env": {
     "DISCORD_BOT_TOKEN": {
       "description": "Discord  bot トークンをここに",
