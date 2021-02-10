@@ -19,7 +19,7 @@
 
 # Note
 
-注意点などがあれば書く
+![picture](https://github.com/8ka1alu/text-to-voice/blob/stable/picture/text_to_speech_icon_135108.png)
 
 # Author
 
