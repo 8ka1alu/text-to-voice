@@ -21,11 +21,5 @@
   },
   "addons": [
     "heroku-redis:hobby-dev"
-  ],
-  "formation": {
-      "description": "自動で起動します",
-      "example": [
-        { "process": "discordbot", "quantity": 1, "size": "standard-2X" }
-      ]
-  }
+  ]
 }
